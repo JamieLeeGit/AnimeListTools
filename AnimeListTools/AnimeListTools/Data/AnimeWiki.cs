@@ -9,7 +9,9 @@ namespace AnimeListTools.Data
     /// </summary>
     public class AnimeWikiContainer
     {
-        public string Year;
+        public int Quarter;
+
+        public string Year;        
         /// <summary>
         /// Play Time
         /// </summary>
@@ -35,8 +37,9 @@ namespace AnimeListTools.Data
         /// <param name="Name">Animation Name</param>
         /// <param name="Studio">Animation production company</param>
         /// <param name="Episodes">Animation Episodes</param>
-        public AnimeWikiContainer(string Year, string Month, string Name, string Studio, string Episodes)
+        public AnimeWikiContainer(int Quarter,string Year, string Month, string Name, string Studio, string Episodes)
         {
+            this.Quarter = Quarter;
             this.Year = Year;
             this.Month = Month;
             this.Name = Name;
