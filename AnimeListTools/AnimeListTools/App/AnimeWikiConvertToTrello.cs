@@ -6,9 +6,9 @@ namespace AnimeListTools.App
 {
     class AnimeWikiConvertToTrello
     {
-        public List<Data.WikiContainer> WikiHtmlConvertToContainer(string Html)
+        public List<Data.Wiki> WikiHtmlConvertToContainer(string Html)
         {
-            List<Data.WikiContainer> result = new List<Data.WikiContainer>();
+            List<Data.Wiki> result = new List<Data.Wiki>();
 
 
 

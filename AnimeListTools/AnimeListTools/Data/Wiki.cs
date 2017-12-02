@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AnimeListTools.Data
 {
-    class WikiContainer
+    class Wiki
     {
         /// <summary>
         /// Wiki Anime List Rubular

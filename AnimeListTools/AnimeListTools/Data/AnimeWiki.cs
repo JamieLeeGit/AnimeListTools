@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AnimeListTools.Data
 {
-    class AnimeWiki
+    class AnimeWikiContainer
     {
         /// <summary>
         /// Play Time
@@ -30,7 +30,7 @@ namespace AnimeListTools.Data
         /// <param name="Name">Animation Name</param>
         /// <param name="Studio">Animation production company</param>
         /// <param name="Episodes">Animation Episodes</param>
-        public AnimeWiki(string Quarter, string Name, string Studio, string Episodes)
+        public AnimeWikiContainer(string Quarter, string Name, string Studio, string Episodes)
         {
             this.Quarter = Quarter;
             this.Name = Name;
