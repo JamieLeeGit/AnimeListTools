@@ -4,12 +4,16 @@ using System.Text;
 
 namespace AnimeListTools.Data
 {
-    class AnimeWikiContainer
+    /// <summary>
+    /// For Trolle Use
+    /// </summary>
+    public class AnimeWikiContainer
     {
+        public string Year;
         /// <summary>
         /// Play Time
         /// </summary>
-        public string Quarter;
+        public string Month;
         /// <summary>
         /// Animation Name
         /// </summary>
@@ -24,15 +28,17 @@ namespace AnimeListTools.Data
         public string Episodes;
 
         /// <summary>
-        /// 初始化設定
+        /// Initialize
         /// </summary>
-        /// <param name="Quarter">Play Time</param>
+        /// <param name="Year"></param>
+        /// <param name="Month">Play Time</param>
         /// <param name="Name">Animation Name</param>
         /// <param name="Studio">Animation production company</param>
         /// <param name="Episodes">Animation Episodes</param>
-        public AnimeWikiContainer(string Quarter, string Name, string Studio, string Episodes)
+        public AnimeWikiContainer(string Year, string Month, string Name, string Studio, string Episodes)
         {
-            this.Quarter = Quarter;
+            this.Year = Year;
+            this.Month = Month;
             this.Name = Name;
             this.Studio = Studio;
             this.Episodes = Episodes;

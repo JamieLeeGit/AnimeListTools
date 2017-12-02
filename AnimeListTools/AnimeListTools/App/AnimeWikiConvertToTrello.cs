@@ -1,18 +1,47 @@
-﻿using System;
+﻿using AnimeListTools.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace AnimeListTools.App
 {
-    class AnimeWikiConvertToTrello
+    public class AnimeWikiConvertToTrello
     {
-        public List<Data.Wiki> WikiHtmlConvertToContainer(string Html)
+        public AnimeWikiConvertToTrello() { }
+
+        public List<AnimeWikiContainer> WikiHtmlConvertToContainer(string Html)
         {
-            List<Data.Wiki> result = new List<Data.Wiki>();
+            List<AnimeWikiContainer> result = new List<AnimeWikiContainer>();
+            string sourceData = Html;
+            string tempHtml;
+            int index;
+            MatchCollection matchCollection;
+            string year = Regex.Match(sourceData, Wiki.YearPattern).Groups[Wiki.RegexGroupName.Year.ToString()].Value;
 
+            for (int i = 0; i < 4; i++)
+            {
+                index = sourceData.IndexOf(Wiki.TablePattern);
+                tempHtml = sourceData.Remove(index);
 
+                matchCollection = Regex.Matches(tempHtml, Wiki.AnimeWikiPattern);
 
-            return null;
+                foreach (Match match in matchCollection)
+                {
+                    result.Add(new AnimeWikiContainer(
+                      year,
+                      match.Groups[Wiki.RegexGroupName.Month.ToString()].Value,
+                      match.Groups[Wiki.RegexGroupName.Name.ToString()].Value,
+                      match.Groups[Wiki.RegexGroupName.Studio.ToString()].Value,
+                      match.Groups[Wiki.RegexGroupName.Episodes.ToString()].Value));
+                }
+
+                sourceData = sourceData.Remove(0, index+ Wiki.TablePattern.Length);
+            }
+
+            return result;
         }
+
+        
     }
 }
